@@ -4,16 +4,16 @@
 
 ## Prerequisites
 
-**1. Install Command Line Tools (Required for everyone):**
+**1. Install Command Line Tools:**
 ```bash
 xcode-select --install
 ```
 
 **2. Set up x86_64 Homebrew:**
-*If you are on **Apple Silicon (M1/M2/M3)**, you likely only have the arm64 Homebrew. You must install the x86_64 version separately to compile this tool.*
+*If you are on **Apple Silicon (M1/M2/M3)**, you likely only have the arm64 Homebrew. You must install the x86_64 version separately to compile this dumper.*
 
 **ARM64 / Silicon:**
-First, ensure Rosetta is installed:
+Install Rosetta if you dont have it:
 ```bash
 softwareupdate --install-rosetta
 ```
