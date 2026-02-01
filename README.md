@@ -69,5 +69,6 @@ Paste this into terminal:
 /bin/bash -c "ver=\$(curl -s 'https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer' | grep -o '\"clientVersionUpload\":\"[^\"]*' | grep -o '[^\"]*$'); echo \"Found version: \$ver\"; echo 'Downloading...'; curl -L \"http://setup.rbxcdn.com/mac/\$ver-RobloxPlayer.zip\" -o /tmp/RobloxPlayer.zip; echo 'Installing to Applications...'; [ -d \"/Applications/Roblox.app\" ] && rm -rf \"/Applications/Roblox.app\"; unzip -o -q /tmp/RobloxPlayer.zip -d /tmp; mv /tmp/RobloxPlayer.app /Applications/Roblox.app; rm /tmp/RobloxPlayer.zip; echo 'Stripping codesign...'; xattr -c /Applications/Roblox.app; codesign --remove-signature /Applications/Roblox.app/Contents/MacOS/RobloxPlayer; echo 'Intel Roblox installed.'"
 ```
 Intel roblox will now be installed, continue from the top.
+
 ---
 Any problems / errors lmk on discord **physics1514_**
