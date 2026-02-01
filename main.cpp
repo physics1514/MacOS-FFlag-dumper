@@ -132,7 +132,7 @@ int main(int argc, char** argv) {
         if (rip + (int32_t)disp != anchorAddr) continue;
 
         cs_insn* insn;
-        size_t count = cs_disasm(cs, textStart + i, 64, g_TextVmAddr + i, 0, &insn); // dissasembles a little bit after, just enough to find the call or jmp following it
+        size_t count = cs_disasm(cs, textStart + i, 64, g_TextVmAddr + i, 0, &insn); // dissasembles a little bit foward from the lea to find a call or jmp following it
         for (size_t j = 0; j < count; j++) {
             if (insn[j].id == X86_INS_JMP || insn[j].id == X86_INS_CALL) {
                 if (insn[j].detail->x86.operands[0].type == X86_OP_IMM) {
@@ -150,7 +150,7 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    // scan for all xrefs of the register function
+    // scan for direct call/jmp references to the register function
     map<string, uint64_t> results;
     
     //  scan 1 byte at a time for E8/E9 (call/jmp)
