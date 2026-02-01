@@ -2,6 +2,8 @@
 ### Simplified Static MacOS Roblox FFlag dumper, for usage with Intel roblox builds.
 `>> supports both intel and arm64 macs <<`
 
+**If you are on an ARM64 / Silicon device scroll to the bottom to install Intel Roblox first.**
+
 ## Prerequisites
 
 **1. Install Command Line Tools:**
@@ -59,4 +61,13 @@ clang++ -O3 -std=c++17 -target x86_64-apple-darwin main.cpp -o dumpfflags -I/usr
 ```
 *The output file is created automatically.*
 
+# Installing Intel Roblox for ARM (M1/2/3/4/..)
+Credits to **norbyv1** for the original bash install script.
+
+Paste this into terminal:
+```sh
+/bin/bash -c "ver=\$(curl -s 'https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer' | grep -o '\"clientVersionUpload\":\"[^\"]*' | grep -o '[^\"]*$'); echo \"Found version: \$ver\"; echo 'Downloading...'; curl -L \"http://setup.rbxcdn.com/mac/\$ver-RobloxPlayer.zip\" -o /tmp/RobloxPlayer.zip; echo 'Installing to Applications...'; [ -d \"/Applications/Roblox.app\" ] && rm -rf \"/Applications/Roblox.app\"; unzip -o -q /tmp/RobloxPlayer.zip -d /tmp; mv /tmp/RobloxPlayer.app /Applications/Roblox.app; rm /tmp/RobloxPlayer.zip; echo 'Stripping codesign...'; xattr -c /Applications/Roblox.app; codesign --remove-signature /Applications/Roblox.app/Contents/MacOS/RobloxPlayer; echo 'Intel Roblox installed.'"
+```
+Intel roblox will now be installed, continue from the top.
+---
 Any problems / errors lmk on discord **physics1514_**
